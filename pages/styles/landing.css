@@ -1,0 +1,254 @@
+/* Landing View Containter */
+.landingView {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fadeInBottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.inputLocation__header {
+  height: 15%;
+  background: #f8f8f8;
+  -webkit-animation: fadeInTop 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInTop 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fadeInTop {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInTop {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Landing Header */
+.landingHeader {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#landingHeader--big {
+  padding-top: 4rem;
+}
+
+.landingHeader__banner--city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  -webkit-animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.landingHeader__banner--city h1:last-child {
+  color: #333333;
+  font-size: 1.3rem;
+}
+
+.landingHeader__banner--city h1:first-child {
+  color: #ffaa15;
+  font-size: 2rem;
+}
+
+.landingHeader__banner--inputLocation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.landingHeader__banner--inputLocation h3 {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.landingHeader__banner--inputLocation__textInput {
+  font-size: 1.1rem;
+  border: none;
+  padding: 0.6rem;
+  font-weight: 600;
+  text-align: center;
+  background: #f8f8f8;
+}
+
+.landingHeader__banner--inputLocation__textInput:placeholder-shown {
+  opacity: 0.5;
+}
+
+.landingHeader__banner--inputLocation__textInput:focus {
+  color: black;
+  border: 2px solid #ffaa15;
+  border-radius: 0.4rem;
+}
+
+/* Error view banner */
+.landingHeader__banner--error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  color: #dadada;
+  -webkit-animation: fadeInTop 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInTop 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.landingHeader__banner--error i {
+  font-size: 5rem;
+  margin: 2rem 0;
+}
+
+.landingHeader__banner--error h1 {
+  color: #555555;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.landingHeader__banner--error h3 {
+  color: #555555;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Landing Buttons */
+.landingButtons {
+  height: 40%;
+}
+
+.landingBtns__btn--findPlaces {
+  background: #ffaa15;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.landingBtns__btn--custom {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #FFCA58;
+  opacity: 0.8;
+}
+
+.landingBtns__btn--custom--invalid,
+.landingBtns__btn--findPlaces--invalid {
+  opacity: 0.4;
+}
+
+.landingButtons__btn--fixLocation {
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333333;
+  color: white;
+  font-weight: 600;
+  font-size: 0.74rem;
+  -webkit-animation: fadeInBottom 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInBottom 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+#btn--locationInput {
+  height: 50%;
+  -webkit-animation: fadeInTopBtn 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInTopBtn 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fadeInTopBtn {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTopBtn {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.inputLocation__header {
+  display: block;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 4rem;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  padding-left: 1rem;
+  color: #333333;
+}
