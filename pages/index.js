@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
   const [location, setLocation] = useState("")
+  const [fetchedLocation, setFetchedLocation] = useState("")
 
   const fetchRandomData = async () => {
     const response = await fetch(`/api/getRandom/${location}`);
@@ -23,8 +24,18 @@ export default function Home() {
 
     let fetchUrl = `/api/search/${location}/${sort_by}/${term}`
     const response = await fetch(fetchUrl);
-
   }
+
+  const fetchLocation = async () => {
+    const response = await fetch("http://ip-api.com/json/");
+    if(response.status === 500) return 500;
+    const location = await response.json();
+    setFetchedLocation(location.city)
+  }
+
+  useEffect(() => {
+    fetchLocation()
+  }, [])
 
   return (
     <>
@@ -41,6 +52,7 @@ export default function Home() {
         </button>
 
         <hr />
+        <h2>Fetched location: {fetchedLocation}</h2>
         <button onClick={fetchCustomSearch}>TEST SEARCH DATA</button>
       </main>
     </>
