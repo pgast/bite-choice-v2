@@ -27,10 +27,10 @@ export default function Home() {
   }
 
   const fetchLocation = async () => {
-    const response = await fetch("http://ip-api.com/json/");
+    const response = await fetch("/api/location");
     if(response.status === 500) return 500;
-    const location = await response.json();
-    setFetchedLocation(location.city)
+    const { location } = await response.json();
+    setFetchedLocation(location)
   }
 
   useEffect(() => {
