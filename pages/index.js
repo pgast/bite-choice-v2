@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [location, setLocation] = useState("")
   const [fetchedLocation, setFetchedLocation] = useState("")
+  const [coordinates, setCoordinates] = useState("")
 
   const fetchRandomData = async () => {
     const response = await fetch(`/api/getRandom/${location}`);
@@ -33,8 +34,21 @@ export default function Home() {
     setFetchedLocation(location)
   }
 
+  const fetchCoordinates = () => {
+    const successCallback = (position) => {
+      setCoordinates(position.coords);
+    };
+    
+    const errorCallback = (error) => {
+      console.log(error);
+    };
+    
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  }
+
   useEffect(() => {
     fetchLocation()
+    fetchCoordinates()
   }, [])
 
   return (
@@ -53,6 +67,7 @@ export default function Home() {
 
         <hr />
         <h2>Fetched location: {fetchedLocation}</h2>
+        <h3>Fetched Coordinates: {coordinates.latitude} {coordinates.longitude}</h3>
         <button onClick={fetchCustomSearch}>TEST SEARCH DATA</button>
       </main>
     </>
