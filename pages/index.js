@@ -13,6 +13,19 @@ export default function Home() {
     return businesses.businesses;
   };
 
+
+  const fetchCustomSearch = async () => {
+    const sortOptions = ['best_match', 'rating', 'review_count'];
+
+    const sort_by = sortOptions[Math.floor(Math.random() * Math.floor(3))];
+    const term = "tacos"
+    const location = "navojoa"
+
+    let fetchUrl = `/api/search/${location}/${sort_by}/${term}`
+    const response = await fetch(fetchUrl);
+
+  }
+
   return (
     <>
       <Head>
@@ -24,8 +37,11 @@ export default function Home() {
       <main className={styles.main}>
         <input type='text' value={location} onChange={(e) => setLocation(e.target.value)}/>
         <button onClick={fetchRandomData}>
-          test
+          test random data
         </button>
+
+        <hr />
+        <button onClick={fetchCustomSearch}>TEST SEARCH DATA</button>
       </main>
     </>
   )
