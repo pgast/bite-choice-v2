@@ -4,7 +4,7 @@ import LandingView from './landing';
 import CustomView from './customView';
 import RandomView from './randomView';
 
-import { Store } from '../store';
+import { Store } from '../../store';
 
 
 const MainView = ({ fetchSuccess, coordinates, isLoadingLocation }) => {
@@ -28,11 +28,13 @@ const MainView = ({ fetchSuccess, coordinates, isLoadingLocation }) => {
     return false;
   }
 
+  const isValidBtn = validBtn()
+
   return (
     <div style={{ height: '100vh', width: '100vw' }}>
       <LandingView 
-        validBtn={validBtn}
         toggleUi={toggleUi}
+        validBtn={isValidBtn}
         fetchSuccess={fetchSuccess} 
         locationInput={hasLocationInput}
         isVisible={state.ui === 'landing'}

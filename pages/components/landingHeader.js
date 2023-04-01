@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import LandingHeaderInput from './landingHeaderInput';
-import { Store } from '../store';
+import { Store } from '../../store';
 
 const LandingHeader = ({ fetchSuccess, locationInput, isLoadingLocation }) => {
   const { state, dispatch } = useContext(Store);

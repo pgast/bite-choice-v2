@@ -1,6 +1,9 @@
 import React from 'react';
 
-const ListItem = ({ item, removeItem }) => {
+const ListItem = ({ 
+  item = { name: null, categories: [], url: null }, 
+  removeItem,
+}) => {
   return (
     <div className="listItem">
       <div>

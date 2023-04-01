@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 
-import { Store } from '../store';
+import { Store } from '../../store';
 
 const CustomFormView = ({ toggleUi, customView, location, coordinates, isVisible }) => {
   if (!isVisible) return 

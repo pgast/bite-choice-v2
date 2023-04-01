@@ -1,6 +1,6 @@
 import React from 'react';
 
-const landingHeaderInput = ({ updateLocation, inputLocation }) => (
+const landingHeaderInput = ({ updateLocation, inputLocation = "" }) => (
   <div className="landingHeader__banner--inputLocation"> 
     <input
       type="text"
