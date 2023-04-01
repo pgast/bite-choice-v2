@@ -27,7 +27,7 @@ export const generateUrl = (inputParams) => {
               if (parameter === "Best Match") {
                   parameter = "best_match";
               } else {
-                  parameter = parameter.toLowerCase();
+                parameter = parameter.toLowerCase();
               }
               url += `sort_by=${parameter}&`;
               break;
@@ -35,6 +35,7 @@ export const generateUrl = (inputParams) => {
               url = url;
       }
   };
+
   return url.slice(0, -1);
 };
 

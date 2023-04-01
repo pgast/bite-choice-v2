@@ -27,7 +27,7 @@ const LandingButtons = ({
           className="landingButtons__btn--fixLocation"
           onClick={() => toggleLocationInputView(true)}
         >
-          WRONG LOCATION? FIX IT HERE
+          WANNA EXPLORE A DIFFERENT CITY?
         </div>
       )}
     </div>

@@ -4,7 +4,7 @@ const initialState = {
   customView: {
     resultsMode: false,
     searchTerms: [],
-    sortBy: 'Best Match'
+    sortBy: 'best_match'
   },
   data: [],
   ui: 'landing',
@@ -13,7 +13,7 @@ const initialState = {
 
 const randomSorting = () => {
   const criteria = ['best_match', 'rating', 'review_count'];
-  return criteria[Math.floor(Math.random() * 4)];
+  return criteria[Math.floor(Math.random() * 3)];
 };
 
 const searchTerm = async (term, sort_by, newLocation) => {
@@ -26,7 +26,7 @@ const fetchData = async (searchInputs) => {
   const { sortBy, searchTerms, location } = searchInputs;
   const isCoordinates = typeof location === 'object' && location !== null
   const fetchLocation = isCoordinates ? `latitude=${location.lat},longitude=${location.long}` : location
-  const sorting = sortBy === 'random' ? randomSorting() : sortBy
+  const sorting = sortBy.toLowerCase() === 'random' ? randomSorting() : sortBy
 
   if (searchTerms.length === 0) {
     const data = await searchTerm(null, sorting, fetchLocation);

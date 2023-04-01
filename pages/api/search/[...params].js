@@ -7,6 +7,5 @@ export default function handler(req, res) {
   const location = params[2]
   let parameters = { sort_by, term }
   parameters = getLocationParameters(location, parameters)
-  
   getRestaurantData(parameters, res);
 }
