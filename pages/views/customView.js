@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ResultView from './resultView';
-import CustomFormView from './CustomFormView';
+import CustomFormView from './customFormView';
 
 const CustomView = ({ 
   data,

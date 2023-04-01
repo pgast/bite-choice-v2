@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import { useState, useEffect } from 'react'
 
-import MainView from './views/MainView';
+import MainView from './views/mainView';
 
 export default function Home() {
   const [coordinates, setCoordinates] = useState("")
