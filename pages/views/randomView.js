@@ -20,6 +20,7 @@ const RandomView = ({ locationInput, toggleUi, data, dispatch, isVisible, coordi
       isCustom={false} 
       toggleUi={toggleUi}
       location={headerLocation} 
+      hasLocationInput={locationInput}
     />
   );
 };

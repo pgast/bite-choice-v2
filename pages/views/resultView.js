@@ -11,6 +11,7 @@ const ResultView = ({
   customSearchData, 
   toggleCustomForm,
   isVisible = true,
+  hasLocationInput = false,
 }) => {
   if (!isVisible) return
   return (
@@ -21,6 +22,7 @@ const ResultView = ({
         location={location} 
         customSearchData={customSearchData}
         toggleCustomForm={toggleCustomForm}
+        hasLocationInput={hasLocationInput}
       />
       <ResultList 
         data={data} 

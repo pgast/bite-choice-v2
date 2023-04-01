@@ -21,6 +21,7 @@ const CustomView = ({
         toggleUi={toggleUi}
         location={locationInput}
         customSearchData={customView}
+        hasLocationInput={locationInput}
         isVisible={customView.resultsMode}
         toggleCustomForm={toggleCustomForm}
         randomSorting={customView.sortBy === 'random' ? true : false}

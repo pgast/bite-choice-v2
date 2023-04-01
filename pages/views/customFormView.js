@@ -45,11 +45,11 @@ const CustomFormView = ({ toggleUi, customView, location, coordinates, isVisible
           <label>Sort by</label>
           <select 
             value={sortBy} 
-            onChange={({ option }) => setSortBy(option)}
+            onChange={(e) => setSortBy(e.target.value)}
           >
-            <option value="Best Match">Best Match</option>
-            <option value="Rating">Rating</option>
-            <option value="Random">Random</option>
+            <option value="best_match">Best Match</option>
+            <option value="rating">Rating</option>
+            <option value="random">Random</option>
           </select>
         </form>
         <div className="customForm__form__txtInput">

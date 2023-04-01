@@ -6,6 +6,7 @@ const ResultHeader = ({
   isCustom, 
   toggleCustomForm, 
   customSearchData, 
+  hasLocationInput,
 }) => {
   return (
     <div className={isCustom ? "resultHeader resultHeader--custom" : "resultHeader"}>
@@ -16,7 +17,7 @@ const ResultHeader = ({
             onClick={() => toggleUi()}
           />
           <div className="resultHeader__title">
-            <h4>Eating in</h4>
+            <h4>{hasLocationInput ? "Eating in" : "Finding eating options"}</h4>
             <h3>{location}</h3>
           </div>
         </>
@@ -28,7 +29,7 @@ const ResultHeader = ({
             onClick={() => toggleCustomForm()}
           />
           <div className="resultHeader__title">
-            <h4>Eating in</h4>
+            <h4>{hasLocationInput ? "Eating in" : "Finding eating options"}</h4>
             <h3>{location}</h3>
           </div>
           <div className="resultHeader--custom__searchTerms">
