@@ -5,7 +5,7 @@ import './styles/listItem.css'
 import './styles/choiceView.css'
 import './styles/errorScreen.css'
 import './styles/customFormView.css'
-import { StoreProvider } from '@/pages/store'
+import { StoreProvider } from '@/store'
 
 export default function App({ Component, pageProps }) {
   return (

@@ -4,7 +4,7 @@ import LandingView from './landing';
 import CustomView from './customView';
 import RandomView from './randomView';
 
-import { Store } from '../store';
+import { Store } from '../../store';
 
 
 const MainView = ({ fetchSuccess, coordinates, isLoadingLocation }) => {
