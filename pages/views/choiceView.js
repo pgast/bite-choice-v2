@@ -1,6 +1,9 @@
 import React from 'react';
 
-const ChoiceView = ({ item, toggleUi }) => {
+const ChoiceView = ({ 
+  item = { name: null, categories: [], location: { address1: null }, url: null }, 
+  toggleUi,
+}) => {
   return (
     <div className="choiceView">
       <h3>
@@ -12,7 +15,7 @@ const ChoiceView = ({ item, toggleUi }) => {
         </h2>
         <div className="choiceView__placeInfo__address">
           <p>
-            {item.categories[0].title}
+            {item.categories[0]?.title}
           </p>
           <p>
             {item.location.address1}
