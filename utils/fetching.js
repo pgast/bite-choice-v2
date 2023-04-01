@@ -4,13 +4,18 @@ import { API_ROOT_URL } from "@/constants";
 
 export const generateUrl = (inputParams) => {
   let url = API_ROOT_URL;
-  console.log(inputParams)
   for (let key in inputParams) {
       let parameter = inputParams[key];
       switch (key) {
           case 'location':
               url += `location=${parameter}&`;
               break;
+          case 'latitude':
+            url += `latitude=${parameter}&`
+            break;
+            case 'longitude':
+            url += `longitude=${parameter}&`
+            break;
           case 'term':
               if (parameter === null || parameter === undefined || parameter === 'null') {
                   url = url;
@@ -46,8 +51,27 @@ export const getRestaurantData = (inputParams, res) => {
       console.error(error)
       res.send({ businesses: "error" }) 
     } else {
-      // res.send(JSON.parse(body));
-      res.status(200).json({ businesses: JSON.parse(body)});
+      res.status(200).json({ businesses: JSON.parse(body).businesses });
     }
   }); 
 };
+
+export const getLocationParameters = (location, parameters) => {
+  const newParameters = { ...parameters }
+  // Check if we are fetching by input location or coordinates
+  const hasLatitude = /latitude/i.test(location)
+  const hasLongitude = /longitude/i.test(location)
+  const validCoords = hasLatitude && hasLongitude
+
+  if (validCoords) {
+    const coordinates = location.split(',')
+    const latitude = coordinates[0].split('=')[1]
+    const longitude = coordinates[1].split('=')[1]
+    newParameters.latitude = latitude
+    newParameters.longitude = longitude
+  } else {
+    newParameters.location = location
+  }
+
+  return newParameters
+}

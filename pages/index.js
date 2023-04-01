@@ -4,53 +4,27 @@ import { useState, useEffect } from 'react'
 
 import MainView from './views/MainView';
 
-
 export default function Home() {
+  const [coordinates, setCoordinates] = useState("")
   const [fetchSuccess, setFetchSuccess] = useState(false)
   const [loadingLocation, setLoadingLocation] = useState(true)
 
+  const getCoords = async () => {
+    const pos = await new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
 
-  const [location, setLocation] = useState("")
-  const [fetchedLocation, setFetchedLocation] = useState("")
-  const [coordinates, setCoordinates] = useState("")
-
-  const fetchRandomData = async () => {
-    const response = await fetch(`/api/getRandom/${location}`);
-    // INTERNAL SERVER ERROR CATCHER
-    if(response.status === 500) return 500;
-    const businesses = await response.json();
-    return businesses.businesses;
+    setFetchSuccess(true)
+    setLoadingLocation(false)
+    
+    setCoordinates({
+      long: pos.coords.longitude,
+      lat: pos.coords.latitude,
+    })
   };
 
-
-  const fetchCustomSearch = async () => {
-    const sortOptions = ['best_match', 'rating', 'review_count'];
-
-    const sort_by = sortOptions[Math.floor(Math.random() * Math.floor(3))];
-    const term = "tacos"
-    const location = "navojoa"
-
-    let fetchUrl = `/api/search/${location}/${sort_by}/${term}`
-    const response = await fetch(fetchUrl);
-  }
-
-  const fetchCoordinates = () => {
-    const successCallback = (position) => {
-      setCoordinates(position.coords);
-      setFetchSuccess(true)
-      setLoadingLocation(false)
-    };
-    
-    const errorCallback = (error) => {
-      console.log(error);
-      setLoadingLocation(false)
-    };
-    
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-  }
-
   useEffect(() => {
-    fetchCoordinates()
+    getCoords()
   }, [])
 
   return (
@@ -67,15 +41,6 @@ export default function Home() {
           fetchSuccess={fetchSuccess}
           isLoadingLocation={loadingLocation}
         />
-        {/* <input type='text' value={location} onChange={(e) => setLocation(e.target.value)}/>
-        <button onClick={fetchRandomData}>
-          test random data
-        </button>
-
-        <hr />
-        <h2>Fetched location: {fetchedLocation}</h2>
-        <h3>Fetched Coordinates: {coordinates.latitude} {coordinates.longitude}</h3>
-        <button onClick={fetchCustomSearch}>TEST SEARCH DATA</button> */}
       </main>
     </>
   )

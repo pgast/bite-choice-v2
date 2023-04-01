@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react';
 
-import LandingView from './landing'
+import LandingView from './landing';
+import CustomView from './customView';
+import RandomView from './randomView';
 
 import { Store } from '../store';
-// const CustomView = React.lazy(() => import('../CustomView'));
-// const RandomView = React.lazy(() => import('../RandomView'));
 
 
 const MainView = ({ fetchSuccess, coordinates, isLoadingLocation }) => {
   const { state, dispatch } = useContext(Store);
-  const [locationInput, setLocationInput] = useState(false);
+  const [hasLocationInput, setHasLocationInput] = useState(false);
   const validUserLocation = state.inputLocation !== '' ? true : false;
 
   const clearLocation = () => dispatch ({ type: 'CLEAR_LOCATION' });
@@ -18,12 +18,12 @@ const MainView = ({ fetchSuccess, coordinates, isLoadingLocation }) => {
 
   const toggleLocationInputView = input => {
     clearLocation();
-    setLocationInput(input);
+    setHasLocationInput(input);
   }
 
   const validBtn = () => {
-    let eventA = locationInput && validUserLocation ? true : false;
-    let eventB = !locationInput && fetchSuccess ? true : false;
+    let eventA = hasLocationInput && validUserLocation ? true : false;
+    let eventB = !hasLocationInput && fetchSuccess ? true : false;
     if(eventA || eventB) return true;
     return false;
   }
@@ -31,35 +31,31 @@ const MainView = ({ fetchSuccess, coordinates, isLoadingLocation }) => {
   return (
     <div style={{ height: '100vh', width: '100vw' }}>
       <LandingView 
-        isVisible={state.ui === 'landing'}
         validBtn={validBtn}
         toggleUi={toggleUi}
         fetchSuccess={fetchSuccess} 
-        locationInput={locationInput}
+        locationInput={hasLocationInput}
+        isVisible={state.ui === 'landing'}
         isLoadingLocation={isLoadingLocation}
         toggleLocationInputView={toggleLocationInputView}
       />
-      <React.Suspense fallback={<></>}>
-        {state.ui === 'custom' && (
-          <div>custom view</div>
-          // <CustomView 
-          //     data={state.data}
-          //     toggleUi={toggleUi}
-          //     customView={state.customView}
-          //     toggleCustomForm={toggleCustomForm}
-          //     location={locationInput ? state.inputLocation : location}
-          //   />
-        )} 
-        {state.ui === 'random' && (
-          <div>random view</div>
-          // <RandomView
-          //   data={state.data}
-          //   locationInput={locationInput}
-          //   toggleUi={() => toggleUi('landing')} 
-          //   location={locationInput ? state.inputLocation : location}
-          // />
-        )}
-      </React.Suspense>
+      <CustomView
+        data={state.data}
+        toggleUi={toggleUi}
+        coordinates={coordinates}
+        customView={state.customView}
+        isVisible={state.ui === 'custom'}
+        toggleCustomForm={toggleCustomForm}
+        locationInput={hasLocationInput && state.inputLocation}
+        />
+      <RandomView
+        data={state.data}
+        dispatch={dispatch}
+        coordinates={coordinates}
+        isVisible={state.ui === 'random'}
+        toggleUi={() => toggleUi('landing')} 
+        locationInput={hasLocationInput && state.inputLocation}
+      />
     </div>
   );
 };

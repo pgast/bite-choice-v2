@@ -10,7 +10,6 @@ const LandingHeader = ({ fetchSuccess, locationInput, isLoadingLocation }) => {
   return (
     <div className="landingHeader" id={locationInput ? "landingHeader--big" : null}>
       {(isLoadingLocation && !locationInput) && <i className="fas fa-utensils" />}
-
       {locationInput && (
         <LandingHeaderInput updateLocation={updateLocation} inputLocation={state.inputLocation} />
       )}

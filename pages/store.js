@@ -17,17 +17,19 @@ const randomSorting = () => {
 };
 
 const searchTerm = async (term, sort_by, newLocation) => {
-    const response = await fetch(`/search/${term}/${sort_by}/${newLocation}`);
+    const response = await fetch(`api/search/${term}/${sort_by}/${newLocation}`);
     const businesses = await response.json();
     return businesses.businesses;
   };
 
 const fetchData = async (searchInputs) => {
   const { sortBy, searchTerms, location } = searchInputs;
+  const isCoordinates = typeof location === 'object' && location !== null
+  const fetchLocation = isCoordinates ? `latitude=${location.lat},longitude=${location.long}` : location
   const sorting = sortBy === 'random' ? randomSorting() : sortBy
 
   if (searchTerms.length === 0) {
-    const data = await searchTerm(null, sorting, location);
+    const data = await searchTerm(null, sorting, fetchLocation);
     return data;
   } else { 
     const termOne = searchTerms[0] !== undefined ? searchTerms[0] : null; 
@@ -39,9 +41,9 @@ const fetchData = async (searchInputs) => {
     let dataTwo = [];
     let dataThree = [];
 
-    if (termOne !== null) { dataOne = await searchTerm(termOne, sorting, location) };
-    if (termTwo !== null) { dataTwo = await searchTerm(termTwo, sorting, location) };
-    if (termThree !== null) { dataThree = await searchTerm(termThree, sorting, location) };
+    if (termOne !== null) { dataOne = await searchTerm(termOne, sorting, fetchLocation) };
+    if (termTwo !== null) { dataTwo = await searchTerm(termTwo, sorting, fetchLocation) };
+    if (termThree !== null) { dataThree = await searchTerm(termThree, sorting, fetchLocation) };
 
     // ERROR CATCHER WRONG DATA
     if(dataOne === undefined) return [undefined];
@@ -55,7 +57,10 @@ const fetchData = async (searchInputs) => {
 };
 
 const fetchRandomData = async (location) => {
-  const response = await fetch(`/getRandom/${location}`);
+  const isCoordinates = typeof location === 'object' && location !== null
+  const fetchLocation = isCoordinates ? `latitude=${location.lat},longitude=${location.long}` : location
+
+  const response = await fetch(`api/getRandom/${fetchLocation}`);
   // INTERNAL SERVER ERROR CATCHER
   if(response.status === 500) return 500;
   const businesses = await response.json();

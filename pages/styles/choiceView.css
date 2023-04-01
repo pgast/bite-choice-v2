@@ -1,0 +1,57 @@
+/* Choice View */
+.choiceView {
+  background: #FFCA58;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: #333333;
+  -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-bck 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.choiceView__placeInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.choiceView__placeInfo > h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.choiceView__placeInfo__address {
+  font-weight: 500;
+}
+
+.choiceView__placeInfo__address > p:first-of-type {
+  font-weight: 700;
+}
+
+.choiceView__btn {
+  height: 2.2rem;
+  border-radius: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem; 
+  width: 70%;
+  background: #333333;
+  color: #FFCA58;
+  -webkit-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.choiceView a {
+  text-decoration: none;
+  background: #6e6e6e4d;
+  width: 5rem;
+  margin-top: 2rem;
+  color: #333333;
+}

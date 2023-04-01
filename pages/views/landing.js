@@ -6,11 +6,11 @@ import LandingButtons from '../components/landingButtons';
 const LandingView = ({ 
   validBtn, 
   toggleUi, 
+  isVisible,
   fetchSuccess, 
   locationInput, 
+  isLoadingLocation,
   toggleLocationInputView, 
-  isVisible = true,
-  isLoadingLocation
 }) => {
   if (!isVisible) return
 
@@ -19,8 +19,8 @@ const LandingView = ({
       {locationInput && (
         <div className="inputLocation__header">
           <i 
-            onClick={() => toggleLocationInputView(false)}
             className="fas fa-chevron-left" 
+            onClick={() => toggleLocationInputView(false)}
           />
         </div>
       )}
