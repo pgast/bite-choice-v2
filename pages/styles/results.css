@@ -1,0 +1,130 @@
+/* Results */
+.resultView {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.resultView__watermark {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.resultView__watermark a {
+  color: black;
+  opacity: 0.2;
+  text-decoration: none;
+}
+
+/* Result Header */
+.resultHeader {
+  height: 5rem;
+  background: #f8f8f8;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  padding-left: 1rem;
+  -webkit-animation: fadeInTop 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fadeInTop 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.resultHeader--custom {
+  flex-direction: column;
+  padding-left: 0;
+  justify-content: space-between;
+  height: 11rem;
+} 
+
+.resultHeader--custom i {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1.75rem 1rem;
+}
+
+.resultHeader--custom__searchTerms {
+  display: flex;
+}
+
+.resultHeader--custom__searchTerms__searchItem {
+  background: #dadada;
+  font-weight: 500;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.8rem;
+  padding: 0 0.7rem;
+  font-size: 0.9rem;
+  margin: 0 0.3rem;
+}
+
+.resultHeader--custom__sortDisplay {
+  display: flex;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resultHeader--custom__sortDisplay p:last-of-type {
+  color: #ffaa15;
+  font-weight: 700;
+  margin-left: 0.3rem;
+}
+
+.resultHeader__title {
+  position: fixed;
+  width: 9rem;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #ffaa15;
+  font-size: 1.1rem;
+}
+
+.resultHeader--custom .resultHeader__title {
+  position: static;
+  transform: none;
+  margin-top: 1rem;
+}
+
+.resultHeader__title h4 {
+  color: #333333;
+  font-size: 1rem;
+}
+
+.resultHeader i {
+  font-size: 1.3rem;
+  color: #333333;
+}
+
+/* Result List */
+.resultList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultList__fetching {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 6rem;
+  opacity: 0.1;
+}
+
+.resultList__fetching h1 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
