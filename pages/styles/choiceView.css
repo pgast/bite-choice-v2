@@ -55,3 +55,9 @@
   margin-top: 2rem;
   color: #333333;
 }
+
+.choiceView__btn--tryAgain {
+  -webkit-animation: pulsate-fwd 1s ease-in-out infinite both;
+  animation: pulsate-fwd 1s ease-in-out infinite both;
+  max-width: 322px;
+}

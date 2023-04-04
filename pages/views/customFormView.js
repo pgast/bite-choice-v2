@@ -90,7 +90,9 @@ const CustomFormView = ({ toggleUi, customView, location, coordinates, isVisible
         className="customForm__findBtn"
         onClick={(e) => submitSearchTerms(e)}
       >
-        FIND ME PLACES
+        <p>
+          FIND ME PLACES
+        </p>
       </div>
     </div>
   );

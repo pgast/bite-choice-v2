@@ -13,21 +13,23 @@ const LandingButtons = ({
         onClick={validBtn ? () => toggleUi('random') : null}
         className={validBtn ? "landingBtns__btn--findPlaces" : "landingBtns__btn--findPlaces landingBtns__btn--findPlaces--invalid"}
       >
-        FIND ME PLACES
+        <p>FIND ME PLACES</p>
       </div>
       <div
         id={locationInput ? "btn--locationInput" : null}
         onClick={validBtn ? () => toggleUi('custom') : null}
         className={validBtn ? "landingBtns__btn--custom" : "landingBtns__btn--custom landingBtns__btn--custom--invalid"}
       >
-        CUSTOM SEARCH
+        <p>CUSTOM SEARCH</p>
       </div>
       {!locationInput && (
         <div 
           className="landingButtons__btn--fixLocation"
           onClick={() => toggleLocationInputView(true)}
         >
-          WANNA EXPLORE A DIFFERENT CITY?
+          <p>
+            WANNA EXPLORE A DIFFERENT CITY?
+          </p>
         </div>
       )}
     </div>
