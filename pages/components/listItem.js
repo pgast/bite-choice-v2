@@ -24,7 +24,7 @@ const ListItem = ({
           Info
         </a>
         <div 
-          className="listItem__btn listItem__btn--delete"
+          className="listItem__btn"
           onClick={() => removeItem()}
         >
           Delete

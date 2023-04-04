@@ -1,3 +1,33 @@
+ @-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
 /* Custom Form */
 .customForm {
   width: 100%;
@@ -48,9 +78,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* margin-top: 2rem; */
   height: 20%;
-  /* border: 1px solid red; */
 }
 
 select {
@@ -74,9 +102,7 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* margin-top: 2rem; */
   height: 30%;
-  /* border: 1px solid red; */
 }
 
 .customForm__form__txtInput form {
@@ -120,7 +146,7 @@ select {
 }
 
 .customForm__form__txtInput input:focus {
-  border: 1px solid #ffaa15;
+  border: 1px solid #f2f2f2;
   opacity: 1;
 }
 
@@ -129,8 +155,6 @@ select {
 }
 
 .customForm__form__searchItems {
-  /* height: 100%; */
-  /* border: 1px solid black; */
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -139,7 +163,7 @@ select {
 }
 
 .customForm__form__searchItems__item {
-  background: #f2f2f2;
+  background: #ffaa15;
   font-weight: 500;
   height: 2rem;
   display: flex;
@@ -149,6 +173,17 @@ select {
   margin: 0.5rem 0;
   -webkit-animation: findBtnFade 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: findBtnFade 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+  animation: pulsate-fwd 0.5s ease-in-out infinite both;
+}
+
+.fa-chevron-left:hover {
+  -webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+  animation: pulsate-fwd 0.5s ease-in-out infinite both;
+}
+
+.customForm__form__searchItems__item:hover > i {
+  color: black;
 }
 
 .customForm__form__searchItems__item p {
@@ -156,7 +191,7 @@ select {
 }
 
 .customForm__form__searchItems__item i {
-  color: #ffaa15;
+  color: #f2f2f2;
 }
 
 .customForm__findBtn {

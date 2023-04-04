@@ -46,7 +46,7 @@ const ResultHeader = ({
           </div>
           <div className="resultHeader--custom__sortDisplay">
             <p>Sorted by</p>
-            <p>{customSearchData.sortBy}</p>
+            <p>{customSearchData.sortBy === 'best_match' ? 'best match' : customSearchData.sortBy}</p>
           </div> 
         </>
       )}

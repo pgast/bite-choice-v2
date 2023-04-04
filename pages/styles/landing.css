@@ -90,6 +90,12 @@
   animation: fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
+.landingHeader__banner--city > i {
+  color: #ffaa15;
+  font-size: 88px;
+  margin-bottom: 42px;
+}
+
 .landingHeader__banner--city h1:last-child {
   color: #333333;
   font-size: 1.3rem;
@@ -178,6 +184,23 @@
   font-weight: 600;
   font-size: 0.9rem;
   opacity: 0.8;
+}
+
+.landingBtns__btn--custom > p,
+.landingButtons__btn--fixLocation > p,
+.customForm__findBtn > p,
+.landingBtns__btn--findPlaces > p {
+  -webkit-transition: font-size .5s ease;
+  -moz-transition: font-size .5s ease;
+  -o-transition: font-size .5s ease;
+  transition: font-size .5s ease;
+}
+
+.customForm__findBtn:hover > p,
+.landingBtns__btn--custom:hover > p,
+.landingButtons__btn--fixLocation:hover > p,
+.landingBtns__btn--findPlaces:hover > p {
+  font-size: 1.1rem;
 }
 
 .landingBtns__btn--custom {

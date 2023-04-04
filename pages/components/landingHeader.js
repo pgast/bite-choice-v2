@@ -9,7 +9,12 @@ const LandingHeader = ({ fetchSuccess, locationInput, isLoadingLocation }) => {
 
   return (
     <div className="landingHeader" id={locationInput ? "landingHeader--big" : null}>
-      {(isLoadingLocation && !locationInput) && <i className="fas fa-utensils" />}
+      {(isLoadingLocation && !locationInput) && (
+      <div className="landingHeader__banner--city">
+        <i className="fas fa-spinner fa-spin"/>
+        <h3>Fetching your location, please allow geolocation from the browser</h3>
+      </div>
+      )}
       {locationInput && (
         <LandingHeaderInput updateLocation={updateLocation} inputLocation={state.inputLocation} />
       )}
