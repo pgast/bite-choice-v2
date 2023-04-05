@@ -3,7 +3,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/pgast/bite-choice)
 
 • React application that fetches places to eat near you or around the world.\
-• Built using the YELP API with an Express.js server to bypass CORS.\
+• Built using the YELP API with serverless functions to bypass CORS.\
 • The user is able to enter other locations and made custom search requests depending on the type of restaurant they are looking for.  
 
 Hungry? [**Try bitechoice**](http://bite-choice-v2.vercel.app/) now!  
